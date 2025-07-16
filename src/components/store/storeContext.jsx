@@ -12,10 +12,19 @@ export default function StoreProvider({ children }) {
   }, []);
 
   function cadastrar(novoUsuario) {
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-    usuarios.push(novoUsuario);
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+  // Opcional: verificar se email já existe para evitar duplicados
+  const emailExiste = usuarios.some(user => user.email === novoUsuario.email);
+  if (emailExiste) {
+    return false; // você pode sinalizar erro no cadastro
   }
+
+  usuarios.push(novoUsuario);
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  return true;
+}
+
 
   function login(email, senha) {
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
