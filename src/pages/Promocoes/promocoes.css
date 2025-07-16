@@ -1,0 +1,153 @@
+/* Geral */
+.promocoes-container {
+  padding: 0;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Seção de Título */
+.promo-header {
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.promo-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.promo-header p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}
+
+/* Grade de Promoções */
+.promocoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.promo-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.promo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.imagem-wrapper {
+  position: relative;
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.promo-card img {
+  width: 100%;
+  max-width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.promo-card:hover img {
+  transform: scale(1.05);
+}
+
+.promo-info {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.promo-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.preco-original {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  text-decoration: line-through;
+  margin-bottom: 0.3rem;
+}
+
+.preco-promocional {
+  font-size: 1.2rem;
+  color: #27ae60;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.btn-comprar {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-comprar:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .promo-header {
+    padding: 2rem 1rem;
+  }
+
+  .promo-header h1 {
+    font-size: 2rem;
+  }
+
+  .promo-header p {
+    font-size: 1rem;
+  }
+
+  .promocoes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 0 1rem;
+  }
+
+  .promo-card img {
+    max-width: 150px;
+    height: 150px;
+  }
+}
