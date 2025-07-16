@@ -1,0 +1,109 @@
+.login-card {
+    background-color: #2C656B;
+    border-radius: 16px;
+    width: 40%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    font-family: Instokweb-Regular, sans-serif;
+}
+
+.login-card__left {
+    padding: 20px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-card__title {
+    color: white;
+    text-align: center;
+    margin: 16px 0px 16px 0px;
+    font-size: 30px;
+}
+
+.login-card__form {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+}
+
+.login-card__label {
+    margin-bottom: 3px;
+    color: white;
+    font-size: 15px;
+}
+
+.login-card__input {
+    padding: 8px;
+    margin-bottom: 16px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 20px;
+}
+
+.login-card__button {
+    height: 36px;
+    background-color: #003C44;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Instokweb-bold, sans-serif;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.login-card__button:hover {
+    background-color: #005f67;
+}
+
+.login-card__links {
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 16px 0px 16px 0px;
+}
+
+.login-card__link {
+    color: white;
+    text-decoration: none;
+    font-family: Instokweb-Regular, sans-serif;
+    font-size: 14px;
+    transition: text-decoration 0.2s;
+}
+
+.login-card__link:hover {
+    text-decoration: underline;
+}
+
+.login-card__right {
+    background-color: #003C44;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.login-card__right-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.login-card__welcome-title {
+    color: white;
+    margin-top: 16px;
+    font-size: 30px;
+}
+
+.login-card__welcome-subtitle {
+    color: white;
+    margin-top: 16px;
+}
