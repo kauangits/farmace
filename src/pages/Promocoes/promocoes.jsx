@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import './promocoes.css';
@@ -37,8 +37,14 @@ const Promocoes = () => {
       desconto: "20% OFF",
       imagem: "https://images.unsplash.com/photo-1551776235-0f0acd04615d",
     },
-    // Adicione mais produtos conforme necessário
   ];
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 50;
+  const totalPages = Math.ceil(promocoes.length / itemsPerPage);
+  const currentPromocoes = promocoes.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  const goToPage = (page) => (page >= 1 && page <= totalPages) && setCurrentPage(page);
 
   return (
     <>
@@ -46,10 +52,10 @@ const Promocoes = () => {
       <main className="promocoes-container">
         <section className="promo-header">
           <h1>Promoções Imperdíveis</h1>
-          <p>Aproveite descontos exclusivos em medicamentos e produtos de saúde!</p>
+          <p>Aproveite descontos exclusivos!</p>
         </section>
         <div className="promocoes-grid">
-          {promocoes.map((promo) => (
+          {currentPromocoes.map((promo) => (
             <div key={promo.id} className="promo-card">
               <div className="imagem-wrapper">
                 <span className="badge">{promo.desconto}</span>
@@ -63,7 +69,38 @@ const Promocoes = () => {
               </div>
             </div>
           ))}
+          {currentPromocoes.length === 0 && <p className="no-results">Nenhuma promoção disponível.</p>}
         </div>
+        {totalPages > 1 && (
+          <div className="pagination">
+            <button
+              className="pagination-btn"
+              onClick={() => goToPage(currentPage - 1)}
+              disabled={currentPage === 1}
+              aria-label="Página anterior"
+            >
+              Anterior
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                className={`pagination-btn ${currentPage === page ? 'active' : ''}`}
+                onClick={() => goToPage(page)}
+                aria-label={`Página ${page}`}
+              >
+                {page}
+              </button>
+            ))}
+            <button
+              className="pagination-btn"
+              onClick={() => goToPage(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              aria-label="Próxima página"
+            >
+              Próximo
+            </button>
+          </div>
+        )}
       </main>
       <Footer />
     </>
