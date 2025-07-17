@@ -1,89 +1,154 @@
 .header {
-    background-color: #003C44;
+  background: linear-gradient(90deg, #003C44 0%, #005f6b 100%);
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .header__nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 6%;
-    height: 70px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header__left .header__logo {
-    width: 160px;
-    height: auto;
-    max-width: 100%;
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
 }
 
-.header__right {
-    width: 40%;
-    max-width: 100%;
+.header__left .header__logo:hover {
+  transform: scale(1.1);
+}
+
+.header__hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.header__hamburger svg {
+  stroke: #fff;
+  transition: transform 0.3s ease;
+}
+
+.header__hamburger:hover svg {
+  transform: rotate(90deg);
 }
 
 .header__nav-links {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .header__nav-links li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.2s;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.header__nav-links li a:hover,
-.header__nav-links li a:focus {
-    color: #77b0aa;
+.header__nav-links li a:hover {
+  color: #00c4cc;
+  transform: translateY(-2px);
 }
 
-/* Responsive styles */
+.header__nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: #00c4cc;
+  transition: width 0.3s ease;
+}
+
+.header__nav-links li a:hover::after {
+  width: 100%;
+}
+
+.header__actions {
+  display: flex;
+  gap: 15px;
+}
+
+.header__action-btn {
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.header__action-btn:hover {
+  color: #00c4cc;
+  transform: scale(1.2);
+}
+
 @media (max-width: 900px) {
-    .header__nav {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        margin: 0 3%;
-        padding: 10px 0;
-    }
-    .header__right {
-        width: 100%;
-        margin-top: 10px;
-    }
-    .header__nav-links {
-        width: 100%;
-        flex-direction: column;
-        gap: 10px;
-    }
-    .header__nav-links li {
-        width: 100%;
-    }
-    .header__nav-links li a {
-        font-size: 16px;
-        display: block;
-        width: 100%;
-        padding: 8px 0;
-    }
-    .header__left .header__logo {
-        width: 120px;
-    }
+  .header__hamburger {
+    display: block;
+  }
+
+  .header__nav-links {
+    flex-direction: column;
+    background: linear-gradient(180deg, #003C44 0%, #005f6b 100%);
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 250px;
+    padding: 20px;
+    gap: 20px;
+    display: none;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 0 10px;
+    animation: slideIn 0.3s ease forwards;
+  }
+
+  .header__nav-links.ativo {
+    display: flex;
+  }
+
+  .header__actions {
+    display: none;
+  }
+
+  @keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+
+  .header__nav-links li a {
+    font-size: 18px;
+  }
 }
 
-@media (max-width: 600px) {
-    .header__nav {
-        margin: 0 1%;
-        padding: 8px 0;
-    }
-    .header__left .header__logo {
-        width: 90px;
-    }
-    .header__nav-links li a {
-        font-size: 15px;
-        padding: 6px 0;
-    }
+@media (max-width: 500px) {
+  .header__nav {
+    padding: 0 3%;
+  }
+
+  .header__logo {
+    height: 40px;
+  }
+
+  .header__nav-links {
+    width: 200px;
+  }
 }
