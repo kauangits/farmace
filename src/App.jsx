@@ -5,7 +5,6 @@ import PrivateRoute from "./components/PrivateRoute";
 
 // Páginas do projeto da farmácia
 import Home from "./pages/Home/Home";
-import Produtos from "./pages/Produtos/Produtos";
 import Carrinho from "./pages/Carrinho/Carrinho";
 import Login from "./pages/Login/Login";
 import Cadastro from "./pages/Cadastro/Cadastro"
@@ -23,14 +22,6 @@ function App() {
           <Route path="/promocoes" element={<Promocoes />} />
           
           {/* Páginas protegidas */}
-          <Route
-            path="/produtos"
-            element={
-              <PrivateRoute>
-                <Produtos />
-              </PrivateRoute>
-            }
-          />
           <Route
             path="/carrinho"
             element={

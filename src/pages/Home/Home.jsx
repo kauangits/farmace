@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import { produtos } from '../Produtos/Produtos';
 import './home.css';
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const produtos = Array.from({ length: 12 }).map((_, i) => ({
-    id: i,
-    nome: `Produto ${i + 1}`,
-    preco: (Math.random() * 100 + 10).toFixed(2),
-    imagem: `https://via.placeholder.com/300x300?text=Produto+${i + 1}`,
-    desconto: i % 3 === 0 ? '10% OFF' : null, // Example badge
-  }));
 
   const filteredProdutos = produtos.filter((produto) =>
     produto.nome.toLowerCase().includes(searchTerm.toLowerCase())
