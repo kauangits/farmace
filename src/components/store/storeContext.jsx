@@ -1,10 +1,27 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect,useContext } from "react";
 
 export const StoreContext = createContext();
+
+
+export function useStore() {
+  return useContext(StoreContext);
+}
+
 
 export default function StoreProvider({ children }) {
   const [usuario, setUsuario] = useState(null);
   const [carrinho, setCarrinho] = useState([]);
+
+  useEffect(() => {
+  const carrinhoSalvo = JSON.parse(localStorage.getItem('carrinho'));
+  if (carrinhoSalvo) setCarrinho(carrinhoSalvo);
+}, []);
+
+useEffect(() => {
+  localStorage.setItem('carrinho', JSON.stringify(carrinho));
+}, [carrinho]);
+
+
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("usuarioLogado"));

@@ -3,11 +3,14 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { produtos } from '../Produtos/Produtos';
 import './home.css';
+import {useStore} from "../../components/store/storeContext"
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 50;
+
+  const { adicionarAoCarrinho } = useStore();
 
   const filteredProdutos = produtos.filter((produto) =>
     produto.nome.toLowerCase().includes(searchTerm.toLowerCase())
@@ -58,7 +61,7 @@ const Home = () => {
                 <div className="produto-info">
                   <h3>{produto.nome}</h3>
                   <p className="preco">R$ {produto.preco}</p>
-                  <button className="btn-comprar">Adicionar</button>
+                  <button className="btn-comprar" onClick={()=> adicionarAoCarrinho(produto)}>Adicionar</button>
                 </div>
               </div>
             ))

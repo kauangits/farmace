@@ -20,8 +20,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/promocoes" element={<Promocoes />} />
-          
-          {/* Páginas protegidas */}
+        
+
+          Páginas protegidas
           <Route
             path="/carrinho"
             element={
