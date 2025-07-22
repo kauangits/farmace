@@ -5,10 +5,10 @@ import PrivateRoute from "./components/PrivateRoute";
 
 // Páginas do projeto da farmácia
 import Home from "./pages/Home/Home";
-import Produtos from "./pages/Produtos/Produtos";
 import Carrinho from "./pages/Carrinho/Carrinho";
 import Login from "./pages/Login/Login";
 import Cadastro from "./pages/Cadastro/Cadastro"
+import Promocoes from './pages/Promocoes/promocoes';;
 
 function App() {
   return (
@@ -19,16 +19,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/promocoes" element={<Promocoes />} />
+        
 
-          {/* Páginas protegidas */}
-          <Route
-            path="/produtos"
-            element={
-              <PrivateRoute>
-                <Produtos />
-              </PrivateRoute>
-            }
-          />
+          Páginas protegidas
           <Route
             path="/carrinho"
             element={
